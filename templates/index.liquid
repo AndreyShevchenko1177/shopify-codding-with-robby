@@ -1,2 +1,20 @@
-<h1>Codding with Robby</h1>
 {% comment %} <img src="{{ 'puppy.png' | asset_url }}"/> {% endcomment %}
+
+<h1>{{ collections['frontpage'].title }}</h1>
+
+    {% for product in collections['frontpage'].products %}
+
+        <div>
+            <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | image_url: width: 200 }}"/>
+                <div>
+                    {{ product.title | link_to: product.url }}
+                </div>
+
+                <p>
+                    {{ product.price | money}}
+                </p>
+
+            </a>
+        </div>
+    {% endfor %}
